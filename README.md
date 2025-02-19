@@ -119,9 +119,9 @@ Caso tenha dúvidas, sugestões ou interesse em colaborar, entre em contato:
 
 📧 **Email:** leonardoortizalves@gmail.com
 
-🔗 **GitHub:** [github.com/seuusuario](https://github.com/leon14789)
+🔗 **GitHub:** [TIRE SUAS DÚVIDAS](https://github.com/leon14789)
 
-📌 **LinkedIn:** [linkedin.com/in/seuusuario](https://www.linkedin.com/in/leonardo-alves-4691b2269/)
+📌 **LinkedIn:** [TIRE SUAS DÚVIDAS](https://www.linkedin.com/in/leonardo-alves-4691b2269/)
 
 ---
 
