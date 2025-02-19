@@ -9,7 +9,15 @@
                 <li><a href="{{ route('registerTeacher') }}">Cadastrar Professor</a></li>
                 <li><a href="#one">Relatorios</a></li>
                 <li><a href="#two">Alterar Cadastro</a></li>
-                <li><a href="#three">Sair</a></li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                        @csrf
+                        <button type="submit">
+                            Sair
+                        </button>
+                    </form>
+                </li>
+
             </ul>
         </nav>
     </div>

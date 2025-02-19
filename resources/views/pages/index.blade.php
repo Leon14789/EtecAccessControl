@@ -27,4 +27,17 @@
     </tbody>
 </table>
 
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    REGISTRAR CHEGADA
+</button>
+
+
 @endsection
+<x-dialogue id="exampleModal" title="REGISTRAR ENTRADA">
+
+
+
+
+</x-dialogue>
+
+

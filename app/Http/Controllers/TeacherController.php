@@ -56,7 +56,7 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+      
     }
 
     /**

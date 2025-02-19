@@ -1,17 +1,43 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.base-layout')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@section('title', 'Dashboard')
+
+@section('content')
+<h1>Controle de Acesso</h1>
+<table class="table table-bordered table-striped ">
+    <thead class="table-dark ">
+        <tr>
+            <th>Nome do Professor</th>
+            <th>Veículo</th>
+            <th>Entrada</th>
+            <th>Saída</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-custom">
+            <td >Professor A</td>
+            <td>Carro</td>
+            <td>08:00</td>
+            <td>12:00</td>
+            <td class="d-flex justify-content-center">
+            <button class="btn btn-warning btn-sm">Registrar Saida</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    REGISTRAR CHEGADA
+</button>
+
+
+@endsection
+<x-dialogue id="exampleModal" title="REGISTRAR ENTRADA">
+
+
+
+
+</x-dialogue>
+
+
