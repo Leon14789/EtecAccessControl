@@ -11,9 +11,9 @@ class Teacher extends Model
 
     protected $guarded = []; 
 
-public function vehicles()
+    public function point()
     {
-        return $this->hasMany( Vehicle::class );
+        return $this->hasMany(Point::class);
     }
 
 }

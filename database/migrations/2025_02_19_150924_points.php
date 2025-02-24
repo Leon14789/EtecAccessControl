@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('points', function (Blueprint $table) {
             $table->id();
             $table->foreignId('teacher_id')->constrained()->onDelete('cascade');
-            $table->dateTime('Prohibited')->nullable()->default(new DateTime());
-            $table->dateTime('exit')->nullable()->default(new DateTime());
+            $table->time('Prohibited');
+            $table->time('exit')->nullable();
             $table->timestamps();
         });
     }

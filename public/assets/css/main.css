@@ -2307,10 +2307,18 @@ input, select, textarea {
 		font-size: 1.1em;
 	}
 
+
+
+
 	input[type="text"],
+	input[type="hiden"],
+	input[type="time"],
+
 	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
+	input[type="hiden"],
+
 	select,
 	textarea {
 		appearance: none;
@@ -3901,3 +3909,14 @@ input, select, textarea {
 		.text-custom {
 			color: #000 !important;
 		}
+
+		input[type="hiden"],
+		input[type="time"]
+	{
+		padding: 2.3%;
+	}
+
+	.modal-header .close {
+		font-size: 2rem; /* Aumenta o tamanho da fonte */
+		padding: 0.75rem 1.25rem; /* Ajusta o padding se necessário */
+	}

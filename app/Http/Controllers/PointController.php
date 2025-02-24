@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Point;
+use App\Models\Teacher;
 use DateTime;
 use DateTimeZone;
+use Exception;
 use Illuminate\Http\Request;
 
 class PointController extends Controller
@@ -12,34 +14,47 @@ class PointController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    public function index() {}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $pont = Point::create([
-            'teacher_id' => $request->teacher_id,
-            'Prohibited' => $request->Prohibited,
-            'exit' => $request->exit,
-        ]);
-        $pont->save();
+
+        $hours = date("H:i:s");
+
+        try {
+            $registerPoint = Point::create([
+                'teacher_id' => $request->idTeacher,
+                'Prohibited' =>  $hours
+            ]);
+            $registerPoint->save();
+            return view('/')
+
+                ->with(['message' => 'Atividade cadastrada com sucesso!', 'class' => 'alert-success']);
+        } catch (Exception $e) {
+            return redirect()->route('dashboard')
+                ->with(['message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger']);
+        }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        $date = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
+        $teachers = Teacher::all();
+
         
-        $register = Point::where('data', $date)->all();
+        $date = date("Y-m-d");
+        $points = Point::with('teacher')  
+        ->whereDate('created_at', $date)
+        ->orderBy('created_at', 'asc')
+        ->get();
 
-
+        
+        return view('dashboard', compact('teachers', 'points') );
     }
 
     /**

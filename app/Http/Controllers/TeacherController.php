@@ -8,13 +8,17 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
+
 {
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+      
+
     }
 
     public function create(): View
@@ -35,28 +39,35 @@ class TeacherController extends Controller
 
         $teacher = Teacher::create([
             'name' => $request->name,
+            'vehicle' => $request->vehicle,
+            'plate' => $request->plate,
 
         ]);
 
        $teacher->save();
 
-       $vehicle = Vehicle::create([
-           'teacher_id' => $teacher->id,
-            'vehicle' => $request->vehicle,
-            'plate' => $request->plate,
-       ]);
-       $vehicle->save();
 
       
-        return view('pages.index');
+        return view('dashboard');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Teacher $teacher)
+    public function show($id)
     {
-      
+        $teacher = Teacher::find($id);
+ 
+        if ($teacher) {
+            return response()->json([
+                'vehicle' => $teacher->vehicle,
+                'plate' => $teacher->plate
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Professor não encontrado'
+            ]);
+        }
     }
 
     /**

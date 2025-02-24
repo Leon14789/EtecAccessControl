@@ -15,6 +15,8 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('vehicle')->defalt('Sem Veiculo Anexado');
+            $table->string('plate')->defalt('Sem Placa Anexada');
             $table->timestamps();
         });
     }
