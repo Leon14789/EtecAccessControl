@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('teacher_id')->constrained()->onDelete('cascade');
             $table->time('Prohibited');
             $table->time('exit')->nullable();
+            $table->string('registered_by');
             $table->timestamps();
         });
     }

@@ -31,25 +31,29 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'vehicle' => ['required', 'string', 'max:255'],
-          
+            
         ]);
 
-        $teacher = Teacher::create([
-            'name' => $request->name,
-            'vehicle' => $request->vehicle,
-            'plate' => $request->plate,
+        try {
+            
+            $teacher = Teacher::create([
+                'name' => $request->name,
+                'vehicle' => $request->vehicle,
+                'plate' => $request->plate,
+            ]);
 
-        ]);
+            
+            $teacher->save();
 
-       $teacher->save();
-
-
-      
-        return view('dashboard');
+        return redirect()->route('dashboard')->with('success', 'Professor registrado com sucesso!');
+    } catch (\Exception $e) {
+        return redirect()->route('dashboard')->with('error', 'Erro ao registrar o professor: ' . $e->getMessage());
     }
+}
 
     /**
      * Display the specified resource.

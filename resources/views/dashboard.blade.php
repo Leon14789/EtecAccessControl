@@ -5,6 +5,16 @@
 @section('content')
 <h1>Controle de Acesso</h1>
 
+<!-- Exibir alerta de sucesso ou erro -->
+@if(session('success'))
+    <x-alert class="success" message="{{ session('success') }}" />
+@endif
+
+@if(session('error'))
+    <x-alert class="danger" message="{{ session('error') }}" />
+@endif
+
+
 @if(isset($points) && $points->isNotEmpty())
 <table class="table table-bordered table-striped ">
     <thead class="table-dark ">
@@ -69,11 +79,6 @@
             <div class="col-6 col-12-xsmall">
                 <label for="plate" class="text-custom">Placa do Veiculo</label>
                 <input type="text" name="plate" id="plate" placeholder="Placa" readonly />
-            </div>
-
-            <div class="col-6 col-12-xsmall">
-                <label for="Prohibited" class="text-custom">Horario de Entrada</label>
-                <input type="time" name="Prohibited" id="Prohibited" />
             </div>
 
             <div class="col-12">

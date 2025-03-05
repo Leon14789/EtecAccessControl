@@ -4,9 +4,11 @@
 @section('title', 'Registrar Professor')
 
 @section('content')
-<form  method="POST" action="{{ route('registerTeacher') }}">
-@csrf
 
+
+<!-- Formulário -->
+<form method="POST" action="{{ route('registerTeacher') }}">
+    @csrf
     <div class="row gtr-uniform">
         <div class="col-6 col-12-xsmall">
             <input type="text" name="name" id="name" value="" placeholder="Nome Completo" />
@@ -22,4 +24,6 @@
         </div>
     </div>
 </form>
+
+
 @endsection

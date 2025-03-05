@@ -21,19 +21,22 @@ class PointController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $hours = date("H:i:s");
 
         try {
             $registerPoint = Point::create([
                 'teacher_id' => $request->idTeacher,
-                'Prohibited' =>  $hours
+                'Prohibited' =>  $hours,
+                'registered_by' => 'NOME DO VIGILANTE ( USER LOGADO )'
             ]);
             $registerPoint->save();
+           
             return view('/')
 
                 ->with(['message' => 'Atividade cadastrada com sucesso!', 'class' => 'alert-success']);
         } catch (Exception $e) {
+          
             return redirect()->route('dashboard')
                 ->with(['message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger']);
         }

@@ -19,7 +19,7 @@ class CreateUserSeeder extends Seeder
             'name' => 'Leonardo Ortiz Alves',
             'email' => 'leonardoortizalves@gmail.com',
             'email_verified_at' => now(),
-            'password' => '121810', 
+            'password' => 'Leon14789!', 
             'remember_token' => Str::random(10),
           
            

@@ -5,8 +5,9 @@
         <nav>
             <ul>
                 <li><a href="{{ route('dashboard') }}">Inicio</a></li>
-                <li><a href="{{ route('register') }}">Cadastrar Vigilante</a></li>
+                <!-- <li><a href="{{ route('register') }}">Cadastrar Vigilante</a></li> -->
                 <li><a href="{{ route('registerTeacher') }}">Cadastrar Professor</a></li>
+                <li><a href="#one">Configuração de Usuarios</a></li>
                 <li><a href="#one">Relatorios</a></li>
                 <li>
                     <form method="POST" action="{{ route('logout') }}" style="display: inline;">
