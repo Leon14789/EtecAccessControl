@@ -7,11 +7,11 @@
 
 <!-- Exibir alerta de sucesso ou erro -->
 @if(session('success'))
-    <x-alert class="success" message="{{ session('success') }}" />
+<x-alert class="success" message="{{ session('success') }}" />
 @endif
 
 @if(session('error'))
-    <x-alert class="danger" message="{{ session('error') }}" />
+<x-alert class="danger" message="{{ session('error') }}" />
 @endif
 
 
@@ -35,7 +35,12 @@
             @if($point->exit)
             <td>{{$point->exit}}</td>
             @else
-            <td> <button class="btn btn-primary btn-sm">Registrar Saida</button></td>
+            <td>
+                <form method="POST" action="{{ route('registerExit', ['id' => $point->teacher_id]) }}">
+                    @csrf
+                    <button class="btn btn-primary btn-sm">Registrar Saida</button>
+                </form>
+            </td>
             @endif
             <td class="d-flex justify-content-center">
                 <button class="btn btn-warning btn-sm">Editar</button>
@@ -45,7 +50,7 @@
     </tbody>
 </table>
 @else
-    <h2>Nenhum Registro encontrado para hoje</h2>
+<h2>Nenhum Registro encontrado para hoje</h2>
 @endif
 
 

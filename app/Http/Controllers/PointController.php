@@ -65,7 +65,21 @@ class PointController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $exitTeacher = date("H:i:s");
+        $teacher = Point::where('teacher_id', $id)->latest()->first();
+        try {
+            if (empty($teacher->exit)) {
+                $teacher->exit = $exitTeacher ;
+                $teacher->save();
+                return redirect()->route('/')
+                ->with(['message' => 'Saida Registrada com sucesso!', 'class' => 'alert-success']);
+            }
+
+        } catch (Exception $e) {
+            return redirect()->route('dashboard')
+                ->with(['message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger']);
+        }
+       
     }
 
     /**

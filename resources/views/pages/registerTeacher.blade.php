@@ -11,13 +11,13 @@
     @csrf
     <div class="row gtr-uniform">
         <div class="col-6 col-12-xsmall">
-            <input type="text" name="name" id="name" value="" placeholder="Nome Completo" />
+            <input type="text" name="name" id="name" value="" placeholder="Nome Completo" required />
         </div>
         <div class="col-6 col-12-xsmall">
-            <input type="text" name="vehicle" id="vehicle" value="" placeholder="Veiculo" />
+            <input type="text" name="vehicle" id="vehicle" value="" placeholder="Veiculo" required />
         </div>
         <div class="col-6 col-12-xsmall">
-            <input type="text" name="plate" id="plate" value="" placeholder="Placa" />
+            <input type="text" name="plate" id="plate" value="" placeholder="Placa" required />
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-success">Registrar Professor</button>

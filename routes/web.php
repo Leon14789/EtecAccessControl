@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/teacher/{id}', [TeacherController::class, 'show']);
     Route::post('/registerPoint', [PointController::class, 'store'])->name('registerPoint');
  
+    Route::post('/registerExit/{id}', [PointController::class, 'update'])->name('registerExit');
+
     
 });
 Route::get('/teste', [PointController::class, 'show']);
