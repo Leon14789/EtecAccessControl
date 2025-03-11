@@ -15,7 +15,7 @@
         @csrf
         <img class="img-login" src="/assets/images/Cabecalho.png" alt="logo CPS" srcset="">
         <label for="username">Email</label>
-        <input type="email" name="email" placeholder="Insira  seu Email" id="username">
+        <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
 
         <label for="password">Senha</label>
         <input type="password" name="password" placeholder="Insira sua Senha" id="password">

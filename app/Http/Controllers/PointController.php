@@ -60,10 +60,7 @@ class PointController extends Controller
         return view('dashboard', compact('teachers', 'points') );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function registerExit(Request $request, string $id)
     {
         $exitTeacher = date("H:i:s");
         $teacher = Point::where('teacher_id', $id)->latest()->first();
@@ -80,6 +77,20 @@ class PointController extends Controller
                 ->with(['message' => 'Algo deu errado tente novamente mais tarde!', 'class' => 'alert-danger']);
         }
        
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $user = Point::find($id);
+
+        $user->update([
+            'Prohibited' => $request->Prohibited,
+            'exit' => $request->exit,
+        ]);
+        return redirect()->route('dashboard')->with('success', 'Professor atualizado com sucesso!');
     }
 
     /**

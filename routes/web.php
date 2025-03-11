@@ -22,11 +22,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/registerTeacher', [TeacherController::class, 'store']);
     Route::get('/teacher/{id}', [TeacherController::class, 'show']);
     Route::post('/registerPoint', [PointController::class, 'store'])->name('registerPoint');
- 
-    Route::post('/registerExit/{id}', [PointController::class, 'update'])->name('registerExit');
+    Route::post('/registerExit/{id}', [PointController::class, 'registerExit'])->name('registerExit');
+    Route::PUT('/updatePoint/{id}', [PointController::class, 'update'])->name('updatePoint');
+    
+    Route::get('/indexTeachers', [TeacherController::class, 'index'])->name('indexTeachers');
+    Route::get('/showTeachers', [TeacherController::class, 'index'])->name('showTeachers');
 
     
 });
-Route::get('/teste', [PointController::class, 'show']);
+
 
 require __DIR__.'/auth.php';
