@@ -16,7 +16,7 @@
 
                 <li><a href="{{ route('register.teacher') }}">Cadastrar Professor</a></li>
                 <li><a href="{{ route('indexTeachers') }}">Listar Professores</a></li>
-                <li><a href="{{ route('showTeachers') }}">Relatórios</a></li>
+                <li><a href="{{ route('report.point') }}">Relatórios</a></li>
                 <li>
                     <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                         @csrf

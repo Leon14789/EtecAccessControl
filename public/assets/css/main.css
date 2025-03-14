@@ -2313,7 +2313,7 @@ input, select, textarea {
 	input[type="text"],
 	input[type="hiden"],
 	input[type="time"],
-
+	input[type="date"],
 	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
@@ -3911,7 +3911,9 @@ input, select, textarea {
 		}
 
 		input[type="hiden"],
-		input[type="time"]
+		input[type="time"],
+		input[type="date"]
+
 	{
 		padding: 2.3%;
 	}

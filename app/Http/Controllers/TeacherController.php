@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Point;
 use App\Models\Teacher;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -100,5 +101,27 @@ class TeacherController extends Controller
         $teacher->delete();
         return redirect()->route('dashboard')->with('error', 'Professor Deletado com sucesso!');
 
+    }
+
+    public function list () {
+        $teachers = Teacher::all();
+        return view('pages.reportPoint', compact( 'teachers'));
+    }
+
+    public function reportPoint(Request $request) {
+
+        $teachers = Teacher::all();
+
+         // Inicializa a variável como coleção vazia para evitar erro na view
+    $reportPoint = collect();
+
+        // Executa a busca apenas se todos os campos forem preenchidos
+    if ($request->has(['dateof', 'dateUntil', 'idTeacher'])) {
+        $reportPoint = Point::whereBetween('created_at', [$request->dateof, $request->dateUntil])
+                            ->where('teacher_id', $request->idTeacher)
+                            ->get();
+    }
+
+        return view('pages.reportPoint', compact(['reportPoint', 'teachers']) );
     }
 }
