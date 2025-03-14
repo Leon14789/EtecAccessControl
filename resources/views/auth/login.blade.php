@@ -14,7 +14,7 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <img class="img-login" src="/assets/images/Cabecalho.png" alt="logo CPS" srcset="">
-        <label for="username">Email</label>
+        <label for="username">Nome</label>
         <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
 
         <label for="password">Senha</label>

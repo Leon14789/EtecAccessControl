@@ -7,7 +7,7 @@
 
 
 <!-- Formulário -->
-<form method="POST" action="{{ route('registerTeacher') }}">
+<form method="POST" action="{{ route('register.teacher') }}">
     @csrf
     <div class="row gtr-uniform">
         <div class="col-6 col-12-xsmall">

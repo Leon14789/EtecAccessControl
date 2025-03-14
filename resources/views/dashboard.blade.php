@@ -115,12 +115,12 @@
             </div>
             <div class="col-6 col-12-xsmall">
                 <label for="vehicle" class="text-custom">Veiculo</label>
-                <input type="text" value="{{ $point->vehicle }}" name="vehicle" id="vehicle" placeholder="Veículo"  readonly />
+                <input type="text" value="{{ $point->teacher->vehicle }}" name="vehicle" id="vehicle" placeholder="Veículo"  readonly />
             </div>
 
             <div class="col-6 col-12-xsmall">
                 <label for="plate" class="text-custom">Placa do Veiculo</label>
-                <input type="text" name="plate" id="plate" placeholder="Placa" readonly value="{{ $point->plate }}"  />
+                <input type="text" value="{{ $point->teacher->plate }}" name="plate" id="plate" placeholder="Placa" readonly   />
             </div>
 
             <div class="col-6 col-12-xsmall">

@@ -16,7 +16,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-      return view('pages.indexTeachers');
+       $teachers = Teacher::all();
+       
+      return view('pages.indexTeachers', compact('teachers') );
 
     }
 
@@ -78,7 +80,16 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+      $teacher =  Teacher::find($teacher->id);
+
+
+       
+      $teacher->update([
+        'name' =>$request->name,
+        'vehicle' => $request->vehicle,
+        'plate' => $request->plate
+      ]);
+      return redirect()->route('dashboard')->with('success', 'Professor atualizado com sucesso!');
     }
 
     /**
@@ -86,6 +97,8 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+        return redirect()->route('dashboard')->with('error', 'Professor Deletado com sucesso!');
+
     }
 }

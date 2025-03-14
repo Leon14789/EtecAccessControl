@@ -85,7 +85,6 @@ class PointController extends Controller
     public function update(Request $request, string $id)
     {
         $user = Point::find($id);
-
         $user->update([
             'Prohibited' => $request->Prohibited,
             'exit' => $request->exit,
