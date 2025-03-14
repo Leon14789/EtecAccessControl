@@ -30,25 +30,26 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-
        
+        
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'is_admin' => ['required', 'in:0,1'],
         ]);
-
+        
         $user = User::create([
             'name' => $request->name,
-          
+            
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'id_admin' => $request->is_admin
+            'is_admin' =>  (int) $request->is_admin,
         ]);
 
         event(new Registered($user));
 
       
-        return view('dashboard');
+        return redirect()->route('dashboard');
     }
 }

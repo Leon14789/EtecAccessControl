@@ -13,13 +13,12 @@
         </div>
 
         <div class="col-6 col-12-xsmall">
-            <select name="is_admin" id="is_admin">
-                <option value="false">É administrador</option>
-                <option value="true">Sim</option>
-                <option value="false">Nao</option>
-
-
+            <select name="is_admin" id="is_admin" required>
+                <option value="">É administrador?</option>
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
             </select>
+
         </div>
         <div class="col-6 col-12-xsmall">
             <input type="email" name="email" id="email" required autocomplete="username" placeholder="Seu melhor Email" />
