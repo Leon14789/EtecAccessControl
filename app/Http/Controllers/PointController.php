@@ -8,6 +8,7 @@ use DateTime;
 use DateTimeZone;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PointController extends Controller
 {
@@ -21,14 +22,14 @@ class PointController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $user = Auth::user();
         $hours = date("H:i:s");
 
         try {
             $registerPoint = Point::create([
                 'teacher_id' => $request->idTeacher,
                 'Prohibited' =>  $hours,
-                'registered_by' => 'NOME DO VIGILANTE ( USER LOGADO )'
+                'registered_by' => $user->name
             ]);
             $registerPoint->save();
            
@@ -48,15 +49,12 @@ class PointController extends Controller
     public function show()
     {
         $teachers = Teacher::all();
-
-        
         $date = date("Y-m-d");
         $points = Point::with('teacher')  
         ->whereDate('created_at', $date)
         ->orderBy('created_at', 'asc')
         ->get();
 
-        
         return view('dashboard', compact('teachers', 'points') );
     }
 

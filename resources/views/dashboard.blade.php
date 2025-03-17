@@ -44,7 +44,7 @@
                 </form>
             </td>
             @endif
-            <td>Vigilante</td>
+            <td> {{$point->registered_by}}  </td>
             <td class="d-flex justify-content-center">
             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#teste">
         Editar    
